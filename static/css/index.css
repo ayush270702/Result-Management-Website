@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/* Get rid of all default margins/paddings. Set typeface */
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  font-family: "lato", sans-serif;
+}
+
+.load{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(243, 225, 191);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.signupFrm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form {
+  background-color: white;
+  width: 400px;
+  border-radius: 8px;
+  padding: 20px 40px;
+  box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+}
+
+.title {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.inputContainer {
+  position: relative;
+  height: 45px;
+  width: 90%;
+  margin-bottom: 17px;
+}
+
+.input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #DADCE0;
+  border-radius: 7px;
+  font-size: 16px;
+  padding: 0 20px;
+  outline: none;
+  background: none;
+  z-index: 1;
+}
+
+.label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 0 4px;
+  background-color: white;
+  color: #DADCE0;
+  font-size: 16px;
+  transition: 0.5s;
+  z-index: 0;
+}
+
+#new1{
+  display: flex;
+  animation: scale1 1s ease-in-out;
+}
+
+.submitBtn {
+  display: block;
+  margin-left: auto;
+  padding: 15px 30px;
+  border: none;
+  background-color: purple;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.submitBtn:hover {
+  background-color: #9867C5;
+  transform: translateY(-2px);
+}
+
+.signupFrm .vl{
+  border-left: 7px solid blue;
+  height: 500px;
+  margin: 0 80px 0 80px;
+  border-radius: 30px;
+}
+
+.signupFrm .right{
+  padding: 90px;
+}
+
+.signupFrm .right ul{
+  color: white;
+  list-style: none;
+}
+
+.signupFrm .right p{
+  display: inline-block;
+  padding-right: 30px;
+  color: wheat;
+}
+
+.signupFrm .right li{
+  padding-bottom: 40px;
+}
+
+.signupFrm .right svg{
+  display: inline-block;
+  margin: -15px 40px;
+}
+
+.signupFrm .right img{
+  display: inline-block;
+  margin: -15px 40px;
+  height: 40px;
+  width: 40px;
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  animation-delay: 2s;
+}
+
+.checkmark {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+  animation-delay: 2s;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 1.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+  animation-delay: 2s;
+}
+
+@keyframes stroke {
+  100% {
+      stroke-dashoffset: 0
+  }
+}
+
+@keyframes scale {
+
+  0%,
+  100% {
+      transform: none
+  }
+
+  50% {
+      transform: scale3d(1.1, 1.1, 1)
+  }
+}
+
+@keyframes scale1 {
+
+  0%,
+  100% {
+      transform: none
+  }
+
+  50% {
+      transform: scale3d(1.1, 1.1, 1)
+  }
+}
+
+@keyframes fill {
+  100% {
+      box-shadow: inset 0px 0px 0px 30px #7ac142
+  }
+}
