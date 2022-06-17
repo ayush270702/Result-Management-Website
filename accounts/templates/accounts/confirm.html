@@ -1,0 +1,30 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="signupFrm" id="signupFrm"> 
+    <div class="form">
+      <center>
+        <p style="font-size: 20px;">Registeration completed !!</p>
+        <p>Please confirm your mail.</p>
+      </center>
+    </div>
+    <div class="vl"></div>
+  <div class="right">
+    <ul>
+      <li>
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+        </svg> 
+        <p> Step 1 - Register</p>
+      </li>
+      <li>
+        <img src="{% static '/images/cross.png' %}" alt="">
+        <p>Step 2 - Verfication</p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+{% endblock %}

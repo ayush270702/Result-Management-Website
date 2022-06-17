@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/css/div.css' %}">
+    <script src="https://kit.fontawesome.com/7028828c4e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo">
+                <a href="#">Manage.</a>
+            </div>
+            <div class="left">
+                <p>{{teacher.first_name}} {{teacher.last_name}}</p>
+                <!-- <img src="{% static '/images/img1.png' %}" alt="Avatar" class="avatar"> -->
+                {% if profile.gender == "Male" %}
+                    <img src="{% static '/images/img1.png' %}" alt="Avatar" class="avatar">
+                {% else %}
+                    <img src="{% static '/images/img2.png' %}" alt="Avatar" class="avatar">
+                {% endif %}
+                <div class="dropdown">
+                    <div class="icon">
+                        <a href="#">
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="/logout">LogOut</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <hr class="hr1">
+    <!-- CLASS :{{profile.div}}
+    {% for p in profile %} 
+        {% for s in student %} 
+            {% if s.student_id == p.user_id %}
+
+                <p>{{s.fname}}</p><a href={% url 'update_marks' s.student_id %} <button>Edit</button> </a> 
+            {% endif %} 
+        {% endfor %} 
+    {% endfor %} -->
+    <center>
+        <table class="js-serial">
+            <tr class="inputl">
+                <th>Sr. No.</th>
+                <th>Name of Student</th>
+                <th>Status</th>
+                <th>Edit</th>
+            </tr>
+            <!-- <tr>
+                <td></td>
+                <td class="inputf">Yash Jambhale</td>
+                <td></td>
+                <td><a href=""><i class="fas fa-edit"></i></a></td>
+            </tr> -->
+            {% for p in profile %} 
+                {% for s in student %} 
+                    {% if s.student_id == p.user_id %}
+                        <tr>
+                            <td></td>
+                            <td class="inputf">{{s.fname}}</td>
+                            <td></td>
+                            <td><a href={% url 'update_marks' s.student_id %} <i class="fas fa-edit"></i></a></td>
+                        </tr>
+                    {% endif %} 
+                {% endfor %} 
+            {% endfor %}
+        </table>
+    </center>
+</body>
+<!-- <script>
+    function addRowCount(tableAttr) {
+        $(tableAttr).each(function(){
+          $('th:first-child, thead td:first-child', this).each(function(){
+            var tag = $(this).prop('tagName');
+            $(this).before('<'+tag+'>#</'+tag+'>');
+          });
+          $('td:first-child', this).each(function(i){
+            $(this).before('<td>'+(i+1)+'</td>');
+          });
+        });
+      }
+      
+      addRowCount('.js-serial');
+</script> -->
+</html>

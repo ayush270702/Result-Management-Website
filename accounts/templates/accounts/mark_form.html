@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <script src="https://kit.fontawesome.com/7028828c4e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static '/css/prof2.css' %}">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo">
+                <a href="#">Manage.
+                </a>
+            </div>
+            <div class="left">
+                <p>Teacher Name {{teacher.first_name}} {{teacher.last_name}}</p>
+                <!-- <img src="{% static '/images/img1.png' %}" alt="Avatar" class="avatar"> -->
+                {% if profile.gender == "Male" %}
+                    <img src="{% static '/images/img3.png' %}" alt="Avatar" class="avatar">
+                {% else %}
+                    <img src="{% static '/images/img2.png' %}" alt="Avatar" class="avatar">
+                {% endif %}
+                <div class="dropdown">
+                    <div class="icon">
+                        <a href="#">
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                    <div class="dropdown-content">
+                        <a onclick="history.back()">Back</a>
+                        <a href="/logout">LogOut</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <hr class="hr1">
+
+    <div class="take">
+        {% if profile.gender == "Male" %}
+                    <img src="{% static '/images/img1.png' %}" alt="Avatar" class="avatar1">
+        {% else %}
+                    <img src="{% static '/images/img4.png' %}" alt="Avatar" class="avatar1">
+        {% endif %}
+        <p class="h">Student Full Name{{teacher.first_name}} {{teacher.last_name}}</p>
+        <p class="h1">Student</p>
+        <p class="h4">Roll No. : 69</p>
+        <p class="h2">Division name : B</p>
+        <p class="h3">Gender : Male</p>
+    </div>
+
+    <form action="" method="POST">
+        {% csrf_token %} {{form}} 
+
+        <input type="submit" name="submit">
+    </form>
+
+
+
+</body>
+
+</html>

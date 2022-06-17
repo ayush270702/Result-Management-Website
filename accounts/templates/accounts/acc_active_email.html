@@ -1,0 +1,177 @@
+{% autoescape off %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7028828c4e.js" crossorigin="anonymous"></script>
+    <title>Manage.</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;900&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f6f9fc;
+        }
+        
+        body:hover {
+            cursor: default;
+        }
+        
+        .wrapper {
+            width: 100%;
+            background-color: #f6f9fc;
+            padding-bottom: 40px;
+        }
+        
+        .webkit {
+            max-width: 800px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo>a>img {
+            height: 70px;
+            width: 70px;
+            padding: 25px 0 30px 0;
+        }
+        
+        .foot {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 14px;
+            padding: 20px 0;
+        }
+        
+        .foot img {
+            height: 27px;
+            width: 27px;
+        }
+        
+        .img a {
+            padding: 0 20px;
+        }
+        
+        .heade {
+            padding: 20px 0;
+            font-family: 'Righteous', cursive;
+            font-size: 30px;
+            color: rgb(71, 71, 71);
+            background: -webkit-linear-gradient(top left, #50a3a2 10%, #53e3a6 100%);
+        }
+        
+        .main {
+            font-family: 'Open Sans', sans-serif;
+            padding: 20px 100px;
+        }
+        
+        .main h2 {
+            font-size: 20px;
+        }
+        
+        .click {
+            padding: 20px 0 0 0;
+        }
+        
+        .click button {
+            padding: 13px 24px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            background: -webkit-linear-gradient(top left, #8f94fb, #4e54c8);
+            border: none;
+            opacity: 0.9;
+        }
+        
+        .click button:hover {
+            cursor: pointer;
+            opacity: 1;
+        }
+        
+        .reg {
+            font-family: 'Open Sans', sans-serif;
+            padding: 30px 20px;
+        }
+        
+        .reg a {
+            color: orange;
+        }
+        
+        @media screen and (max-width: 800px) {
+            .webkit {
+                max-width: 600px;
+            }
+            .main {
+                padding: 20px 40px;
+            }
+        }
+        
+        @media screen and (max-width: 600px) {
+            .webkit {
+                max-width: 400px;
+            }
+            .main {
+                padding: 20px 60px;
+            }
+        }
+        
+        @media screen and (max-width: 500px) {
+            .webkit {
+                max-width: 300px;
+            }
+            .main {
+                padding: 20px 40px;
+            }
+            .heade {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    </div>
+    <center class="wrapper">
+        <div class="logo">
+            <a href="/home">
+                <img src="https://i.imgur.com/o6k21y4.png" />
+            </a>
+        </div>
+        <div class="webkit">
+            <div class="heade">
+                <p>Just one more step...</p>
+            </div>
+            <div class="main">
+                <h2>Hi! {{ user.username }}</h2>
+                <p>You just created a new customer account at Manage. All you have to do now is activate it :</p>
+            </div>
+            <div class="click">
+                <a href="{{ domain }}{% url 'activate' uidb64=uid token=token %}">
+                    <button>Activate my account</button>
+                </a>
+            </div>
+            <div class="reg">
+                <p>If this link doesn't work copy this URL into browser : <a href="#">View URL</a></p>
+                <p>Or else reply to this mail.</p>
+            </div>
+        </div>
+        <div class="foot">
+            <p>© 2022 Manage. All rights reserved</p>
+            <div class="img">
+                <a href="{{f.git}}">
+                    <img src="https://i.imgur.com/aFMDlMx.png" />
+                </a>
+                <a href="{{f.link}}">
+                    <img src="https://i.imgur.com/c8xIsze.png" />
+                </a>
+            </div>
+            <p>You received this mail because you signed up for Manage.</p>
+        </div>
+    </center>
+</body>
+
+</html>
+{% endautoescape %}

@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Profile Login</title>
+    <script src="https://kit.fontawesome.com/7028828c4e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static '/css/prof1.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo">
+                <a href="#">Manage.
+                </a>
+            </div>
+            <div class="left">
+                <p>{{teacher.first_name}} {{teacher.last_name}}</p>
+                <!-- <img src="{% static '/images/img1.png' %}" alt="Avatar" class="avatar"> -->
+                {% if profile.gender == "Male" %}
+                    <img src="{% static '/images/img3.png' %}" alt="Avatar" class="avatar">
+                {% else %}
+                    <img src="{% static '/images/img2.png' %}" alt="Avatar" class="avatar">
+                {% endif %}
+                <div class="dropdown">
+                    <div class="icon">
+                        <a href="#">
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="#">Back</a>
+                        <a href="{% url 'profile' teacher.id %}">My Profile</a>
+                        <a href="/logout">LogOut</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <hr class="hr1">
+
+    <div class="take">
+        {% if profile.gender == "Male" %}
+                    <img src="{% static '/images/img3.png' %}" alt="Avatar" class="avatar1">
+        {% else %}
+                    <img src="{% static '/images/img2.png' %}" alt="Avatar" class="avatar1">
+        {% endif %}
+        <p class="h">{{teacher.first_name}} {{teacher.last_name}}</p>
+        <p class="h1">{{profile.faculty|capfirst }}</p>
+    </div>
+<div class="add">
+    <button onclick="myFunction()" id="lol">Edit </button>
+</div>
+    <div class="open">
+        
+        <div class="lmao">
+            <input type="text" value="{{teacher.first_name}}" placeholder="First Name" class="input1" id="add" disabled>
+            <input type="text" value="{{teacher.last_name}}" placeholder="Last Name" class="input1" id="add1" disabled>
+        </div>
+        <div class="lmao">
+            <input type="text" value="{{profile.phone}}" placeholder="Contact No." class="input1" id="add2" disabled>
+        </div>
+        <div class="lmao">
+            <input type="text" placeholder="{{teacher.email}}" class="input2" disabled>
+        </div>
+        <div class="lmao">
+            <input type="text" value="{{profile.organization}}" placeholder="Organization" class="input2" id="add3" disabled>
+        </div>
+        <div class="lmao">
+            <input type="text" value="{{profile.gender}}" placeholder="Gender" class="input1" id="add4" disabled>
+        </div>
+    </div>
+    <div >
+        <input type="submit"  id="aaya" value="Save"  class="submitBtn">
+    </div>
+</body>
+<script>
+    function myFunction() {
+        document.getElementById("add").disabled = false;
+        document.getElementById("lol").style.backgroundColor = '#9867C5'
+        document.getElementById("add1").disabled = false;
+        document.getElementById("add2").disabled = false;
+        document.getElementById("add3").disabled = false;
+        document.getElementById("add4").disabled = false;
+        document.getElementById("aaya").style.display = "block";
+        document.getElementByClass("input2").disabled = false;
+        /*document.getElementById("add5").style.display = "block";*/
+      }
+</script>
+</html>

@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <script src="https://kit.fontawesome.com/7028828c4e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static '/css/stud.css' %}">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo">
+                <a href="#">Manage.
+                </a>
+            </div>
+            <div class="left">
+                <p>{{teacher.first_name}} {{teacher.last_name}}</p>
+                <!-- <img src="{% static '/images/img3.png' %}" alt="Avatar" class="avatar"> -->
+                {% if profile.gender == "Male" %}
+                    <img src="{% static '/images/img3.png' %}" alt="Avatar" class="avatar">
+                {% else %}
+                    <img src="{% static '/images/img4.png' %}" alt="Avatar" class="avatar">
+                {% endif %}
+                <div class="dropdown">
+                    <div class="icon">
+                        <a href="#">
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="{% url 'profile' student.id %}">My Profile</a>
+                        <a href="/logout">LogOut</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <hr class="hr1">
+
+    <div class="take">
+        {% if profile.gender == "Male" %}
+                    <img src="{% static '/images/img3.png' %}" alt="Avatar" class="avatar1">
+        {% else %}
+                    <img src="{% static '/images/img4.png' %}" alt="Avatar" class="avatar1">
+        {% endif %}
+        <p class="h">{{student.first_name}} {{student.last_name}}</p>
+        <p class="h1">Student</p>
+        <p class="h4">Roll No. : 69</p>
+        <p class="h2">Division name : B</p>
+        <p class="h3">Gender : {{profile.gender}}</p>
+    </div>
+
+    <p>Phone: {{profile.phone}}</p>
+    <br>
+    <p>Email: {{student.email}}</p>
+    <br>
+    <p>Organization: {{profile.organization}}</p>
+    <br>
+    <p>Sub1: {{marks.sub1}}</p>
+    <br>
+    <p>Sub2: {{marks.sub2}}</p>
+    <br>
+    <p>Sub3: {{marks.sub3}}</p>
+
+    <a href="/logout"><input type="submit"></a>
+
+</body>
+
+</html>

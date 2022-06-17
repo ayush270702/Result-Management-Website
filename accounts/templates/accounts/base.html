@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage. - Sign Up</title>
+    <link rel="shortcut icon" type="image" href="{% static '/images/logo.png' %}" >
+    <script src="https://kit.fontawesome.com/7028828c4e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static '/css/test.css' %}">
+</head>
+<body>
+    <div class="load" id="loads">
+        <p>Loading...</p>
+    </div>
+    <video autoplay muted loop id="background-video">
+        <source src="{% static '/images/video.mp4' %}" type="video/mp4">
+        Your browser does not support background.
+    </video>
+    {% block content %}
+    {% endblock %}
+</body>
+<script src="{% static '/js/test.js' %}"></script>
+</html>

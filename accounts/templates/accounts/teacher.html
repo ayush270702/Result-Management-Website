@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Profile Login</title>
+    <script src="https://kit.fontawesome.com/7028828c4e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static '/css/tech.css' %}">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo">
+                <a href="#">Manage.
+                </a>
+            </div>
+            <div class="left">
+                <p>{{teacher.first_name}} {{teacher.last_name}}</p>
+                <!-- <img src="{% static '/images/img1.png' %}" alt="Avatar" class="avatar"> -->
+                {% if profile.gender == "Male" %}
+                    <img src="{% static '/images/img1.png' %}" alt="Avatar" class="avatar">
+                {% else %}
+                    <img src="{% static '/images/img2.png' %}" alt="Avatar" class="avatar">
+                {% endif %}
+                <div class="dropdown">
+                    <div class="icon">
+                        <a href="#">
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="{% url 'profile' teacher.id %}">My Profile</a>
+                        <a href="/logout">LogOut</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <hr class="hr1">
+    
+    <!-- <br>
+    <p>Last Name: {{teacher.last_name}}</p>
+    <br>
+    <p>Phone: {{profile.phone}}</p>
+    <br>
+    <p>Email: {{teacher.email}}</p>
+    <br>
+    <p>Organization: {{profile.organization}}</p>
+    <br>
+    <br>
+    <p>Gender: {{profile.gender}}</p>
+    <br> -->
+
+    <!-- 
+    <form method="post">
+        {% csrf_token %} {% for s,p in du %} {% if 'student' in s.faculty %}
+        <p>{{p.first_name}}
+
+            <a href={% url 'update_marks' p.id %} <button>Edit</button>
+            </a>
+        </p>
+        {% endif %} {% endfor %}
+    </form> -->
+    <div class="contain">
+        <ul>
+            <li> 
+                <div class="container">
+                    <a href="{% url 'div' 'A' %}">
+                    <div class="card">
+                        <div class="box">
+                            <div class="head">
+                                <h2>Div A</h2>
+                            </div>
+                            <hr class="hr2">
+                            <p>Total Number of Students : {{a}} </p>
+                        </div>
+                    </div>     
+                </div>
+            </li>
+            <li>
+                <div class="container">
+                    <a href="{% url 'div' 'B' %}">
+                    <div class="card">
+                        <div class="box">
+                            <div class="head">
+                                <h2>Div B</h2>
+                            </div>
+                            <hr class="hr2">
+                            <hr>
+                            <p>Total Number of Students : {{b}} </p>
+                        </div>
+                    </div>     
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

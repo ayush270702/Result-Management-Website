@@ -1,0 +1,49 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="signupFrm" id="signupFrm">  
+    <div>
+    <form method="post" class="form">  
+      {% csrf_token %}  
+        <h1 class="title">Register</h1>
+        <!-- inputContainer -->
+        {% for field in form %}  
+        <p>  
+          <!-- {{ field.label_tag }}<br>   -->
+          
+          <div class="inputContainer">
+            {{field.label_tag}}
+          {{ field }}
+          </div>  
+          {% if field.help_text %}  
+            <small style="display: none ">{{ field.help_text }}</small>  
+          {% endif %}  
+          {% for error in field.errors %}  
+            <p style="color: red">{{ error }}</p>  
+          {% endfor %}  
+        </p>  
+        {% endfor %}  
+        <input type="checkbox" onclick="myFunction()" style="color: red">Show Password
+        <input type="submit" class="submitBtn" value="Next" onclick="myFun()" href="index.html">
+        <p>Already Registered - <a href="#"  >Sign In</a></p>
+    </form>
+    </div>  
+    <div class="vl"></div>
+      <div class="right">
+        <ul>
+          <li>
+            <!-- <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+            </svg>  -->
+            <img src="{% static '/images/cross.png' %}" alt="">
+            <p> Step 1 - Register</p>
+          </li>
+          <li>
+            <img src="{% static '/images/cross.png' %}" alt="">
+            <p>Step 2 - Verfication</p>
+          </li>
+        </ul>
+      </div>
+  </div>  
+  {% endblock %}
